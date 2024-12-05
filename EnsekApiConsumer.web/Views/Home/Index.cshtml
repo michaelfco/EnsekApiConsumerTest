@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<EnsekApiConsumer.Web.ViewModel.MeterReadingViewModel>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+
+</div>
+<div>
+    <h3>Meter Reading Data</h3>
+    @if (!Model.Any())
+    {
+        <p>No meter readings found.</p>
+    }
+    else
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Account ID</th>
+                    <th>Meter Reading Date</th>
+                    <th>Meter Read Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var reading in Model)
+                {
+                    <tr>
+                        <td>@reading.AccountId</td>
+                        <td>@reading.MeterReadingDateTime.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>@reading.MeterReadValue</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

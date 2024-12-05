@@ -9,8 +9,8 @@ The EnsekApiConsumer.Web project is a web application for interacting with the E
 
 # Setup and Configuration
 ## Prerequisites
-**.NET 8**
-**An active instance of the Ensek Meter Reading API running (ensure the base URL is configured).**
+- **.NET 8**
+- **An active instance of the Ensek Meter Reading API running (ensure the base URL is configured).**
 
 {
   "ApiSettings": {

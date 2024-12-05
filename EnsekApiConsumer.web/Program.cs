@@ -1,3 +1,4 @@
+using EnsekApiConsumer.Infrastructure;
 using EnsekApiConsumer.Infrastructure.Extension;
 using EnsekApiConsumer.Infrastructure.Services;
 
@@ -6,8 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.Configure<ApiSettings>(builder.Configuration.GetSection("ApiSettings"));
 
-builder.Services.AddInfrastructure("https://localhost:7051");
+var apiSettings = builder.Configuration.GetSection("ApiSettings").Get<ApiSettings>();
+
+builder.Services.AddInfrastructure(builder.Configuration);
 
 
 var app = builder.Build();

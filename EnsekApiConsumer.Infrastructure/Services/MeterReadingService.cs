@@ -15,9 +15,13 @@ public class MeterReadingService : IMeterReadingService
 {
     private readonly HttpClient _httpClient;
 
-    public MeterReadingService(HttpClient httpClient)
+    //public MeterReadingService(HttpClient httpClient)
+    //{
+    //    _httpClient = httpClient;
+    //}
+    public MeterReadingService(IHttpClientFactory httpClientFactory)
     {
-        _httpClient = httpClient;
+        _httpClient = httpClientFactory.CreateClient("ApiClient");
     }
 
     public async Task<List<MeterReading>> GetMeterReadingsAsync()
